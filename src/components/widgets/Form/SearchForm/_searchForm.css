@@ -1,0 +1,64 @@
+.search-box .panel-primary {
+    border-color: #cfdbe2;
+}
+
+.search-box button.btn-red {
+	width: 100%;
+	margin-top: 20px;
+}
+
+.search-box form #check-date {
+	background-color: white;
+}
+
+.form-horizontal .control-label {
+	margin-bottom: 5px;
+}
+
+.search-box .or {
+	margin-top: 8px;
+	color: #515253;
+}
+
+.room-row-count {
+	margin-bottom: 0;
+}
+
+.room-row-count h4 {
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+
+.search-box .input-hotel {
+	width: 100%;
+}
+	.search-box .input-hotel div{
+		z-index: 999999999;
+		position: relative;
+	}
+.search-box form .required {
+	border-color: red;
+}
+.search-box .form-control-feedback.glyphicon {
+    top: 21px !important;
+}
+.input-hotel + .form-control-feedback{
+	left: auto;
+}
+
+.search-box  .panel-body {
+	padding: 30px;
+}
+.auto_address{
+    display: inline-block;
+    margin-left: 2px;
+    font-size: 10px;
+    margin-bottom: 0px !important;
+    line-height: 20px;
+}
+.auto_name{
+    display: inline-block;
+    margin-bottom: 0px !important;
+    line-height: 20px;
+    vertical-align: middle;
+}
