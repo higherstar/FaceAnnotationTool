@@ -9,7 +9,8 @@ let cls;
 
 export default class Canvas extends Component {
     static propTypes = {
-
+        images: PropTypes.array.isRequired,
+        position: PropTypes.number.isRequired
     };
 
     constructor(props) {
@@ -55,6 +56,7 @@ export default class Canvas extends Component {
         });
     }
 
+    // mouse click event on canvas
     onClick(e) {
         if (cls.state.count === 8) {
             return;
@@ -65,24 +67,26 @@ export default class Canvas extends Component {
         const curPos = this.data.getLocalPosition(this.parent);
 
         // add pointers to image
-        if (curPos.x > 10 && curPos.y > 10) {
+        if (curPos.x > 10 && curPos.x < cls.state.container.width - 10
+            && curPos.y > 10 && curPos.y < cls.state.container.height - 10) {
             cls.addPointer(curPos);
         }
     };
 
+    // add pointer to the mouse clicked position
     addPointer(pos) {
         // draw a circle
         let graphics = new PIXI.Graphics();
         graphics.lineStyle(2, 0x00FF00);
         graphics.beginFill(0xFFFFFF, 0);
-        graphics.drawCircle(pos.x, pos.y, 5);
+        graphics.drawCircle(pos.x, pos.y, 4);
         graphics.endFill();
         this.state.container.addChild(graphics);
 
         // add text
         const style = new PIXI.TextStyle({
             fontFamily: 'Arial',
-            fontSize: 10,
+            fontSize: 12,
             fill: '#00ff00',
             stroke: '#00ff00'
         });

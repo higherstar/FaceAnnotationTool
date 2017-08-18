@@ -6,6 +6,7 @@ import './index.css';
 class HomePage extends Component {
 	constructor(props) {
 		super(props);
+
 		this.state = {
             note: 'None',
             images: ['/img/1.jpeg', '/img/2.jpg', '/img/3.jpg'],
@@ -45,17 +46,19 @@ class HomePage extends Component {
 		console.log('clicked skip');
 	}
 
-	nextImage() {
+	// select next image
+	nextImage = () => {
 		this.setState({
 			position: this.state.position + 1
 		});
-	}
+	};
 
-	previousImage(){
+	// select previous image
+	previousImage = () => {
         this.setState({
             position: this.state.position - 1
         });
-	}
+	};
 
 	render() {
 		return (
@@ -64,7 +67,7 @@ class HomePage extends Component {
 					<div className="canvas_area">
 						<Canvas
 							images={this.state.images}
-							position={this.state.position}/>
+							position={this.state.position} />
 
 						<p className="note_area">
 							{this.state.note}
@@ -72,11 +75,23 @@ class HomePage extends Component {
 
 						<div className="row">
 							<div className="col-md-6">
-								<button className="btn btn-previous btn-block" onClick={this.previousImage}>Previous</button>
+								<button
+									className="btn btn-previous btn-block"
+									onClick={this.previousImage}
+									disabled={this.state.position === 0}
+								>
+									Previous
+								</button>
 							</div>
 
 							<div className="col-md-6">
-								<button className="btn btn-green btn-block" onClick={this.nextImage}>Next</button>
+								<button
+									className="btn btn-green btn-block"
+									onClick={this.nextImage}
+									disabled={this.state.position === this.state.images.length - 1}
+								>
+									Next
+								</button>
 							</div>
 						</div>
 					</div>
