@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import './_canvas.css';
-import Img from './download.jpeg';
+import Img from '../../../../public/img/download.jpeg';
 
 let PIXI = require('pixi.js');
 let cls;

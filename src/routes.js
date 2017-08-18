@@ -1,6 +1,6 @@
 import React from 'react';
 import { Router, Route, browserHistory } from 'react-router';
-import HomePage from './containers/HomePage';
+import HomePage from './containers/Home/index';
 import LoginPage from './containers/LoginPage';
 
 let requireAuth = (nextState, replace) => {
