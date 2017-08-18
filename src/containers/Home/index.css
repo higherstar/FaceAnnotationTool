@@ -1,5 +1,5 @@
 .layout{
-    width: 80%;
+    width: 1024px;
     height: 80%;
     margin: auto;
     margin-top: 50px;
@@ -10,18 +10,38 @@
     width: 60%;
     display: inline-block;
     margin-right: 5%;
+    text-align: center;
 }
 .instruction_area{
     width: 35%;
     display: inline-block;
-    height: 400px;
+    height: 420px;
     background: #9fd9e4;
     vertical-align: top;
-    padding: 10px;
+    padding: 20px;
 }
 .instruction_area h3{
     margin-top: 0px;
 }
+.instruction_area h4{
+    font-size: 15px;
+}
 .text-center{
     text-align: center;
+}
+.btn-green{
+    background: #29bb79;
+    font-size: 20px;
+    color: white;
+    border-radius: 20px;
+}
+
+.btn-previous{
+    font-size: 20px;
+    border-radius: 20px;
+}
+
+.note_area{
+    font-size: 18px;
+    color: #5c00e6;
 }

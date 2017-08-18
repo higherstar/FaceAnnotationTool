@@ -7,8 +7,24 @@ class HomePage extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			propertiesData: []
-		};
+            note: 'None',
+            images: ['/img/1.jpeg', '/img/2.jpg', '/img/3.jpg'],
+			position: 0
+        };
+	}
+
+	nextImage(){
+		console.log('next image');
+		this.setState({
+			position: this.state.position + 1
+		});
+	}
+
+	previousImage(){
+		console.log('previous image');
+        this.setState({
+            position: this.state.position - 1
+        });
 	}
 
 	render() {
@@ -16,7 +32,20 @@ class HomePage extends Component {
 			<div className="layout">
 				<div className="wrapper no-sidebar">
 					<div className="canvas_area">
-						<Canvas />
+						<Canvas
+							images={this.state.images}
+							position={this.state.position}/>
+						<p className="note_area">
+							{this.state.note}
+						</p>
+						<div className="row">
+							<div className="col-md-6">
+								<button className="btn btn-previous btn-block" onClick={this.previousImage}>Previous</button>
+							</div>
+							<div className="col-md-6">
+								<button className="btn btn-green btn-block" onClick={this.nextImage}>Next</button>
+							</div>
+						</div>
 					</div>
 					<div className="instruction_area">
 						<h3 className="text-center">Instruction</h3>
