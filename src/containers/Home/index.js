@@ -19,9 +19,6 @@ class HomePage extends Component {
 
     componentWillMount() {
         document.addEventListener("keydown", this.handleEscKey, false);
-        if(this.state.button_type === 's'){
-            console.log('clicked s');
-        }
     }
 
 ﻿	componentWillUnmount() {
@@ -39,6 +36,8 @@ class HomePage extends Component {
             case 'Backspace':
                 console.log('Clicked Backspace key');
                 break;
+			default:
+				break;
         }
     }
 
@@ -98,8 +97,8 @@ class HomePage extends Component {
 
 					<div className="instruction_area">
 						<h3 className="text-center">Instruction</h3>
-						<img src="/img/instruction.png" />
-						<h4>Click on the face pooints in this order</h4>
+						<img src="/img/instruction.png" alt="instruction"/>
+						<h4>Click on the face points in this order</h4>
 						<h4>Shortcuts:</h4>
 						<h5>s : skip a point if it's not visible</h5>
 						<h5>backspace: delete the last point</h5>

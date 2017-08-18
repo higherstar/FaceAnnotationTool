@@ -54,7 +54,7 @@ class LoginPage extends Component {
 	render() {
 		let overlayClass = (this.state.sendingRequest) ? 'rcomui-overlay show' : 'rcomui-overlay';
 		return (
-			<div className="layout">
+			<div>
                 <LoadingOverlay
                     overlayClass={overlayClass}
                     message="Please wait..."
