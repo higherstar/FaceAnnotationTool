@@ -1,5 +1,5 @@
 import AccountConstants from '../constants/AccountConstants';
-import ApiPathConstants from '../constants/ApiPathConstants';
+// import ApiPathConstants from '../constants/ApiPathConstants';
 import _ from 'lodash';
 
 let AccountActions = {
@@ -26,41 +26,52 @@ let AccountActions = {
 	login: function(data, cb){
 		let _obj = this;
 		return dispatch => {
-			let _apiBody="grant_type=password&username="+data.Username+"&password="+data.Password;
 
+            let res = null;
 			if(data.Username === 'test' && data.Password === 'password'){
+                res = {
+                    token: 'sdfsdfsdfsdfsdfsdfsdfsdfsdfsdf',
+                    message: 'successfuylly logged in.'
+                };
                 dispatch(_obj.loginSuccess(res));
                 if(cb != null){
                     cb();
                 }
             }else{
+                res = {
+                    error: 'The credentials are incorrect.'
+                };
+                dispatch(_obj.loginError(res));
+                if(cb != null){
+                    cb();
+                }
+            }
 
-			}
-
-			fetch(ApiPathConstants.getApiPath() + '/token', {
-				method: 'POST',
-				headers: {
-					'Accept': 'application/json',
-					'Content-Type': 'application/json'
-				},
-				body: _apiBody
-			})
-			.then(response => {
-				
-				response.json().then(function(res) {
-					if(res.error !=null){
-						dispatch(_obj.loginError(res));
-						if(cb != null){
-							cb();
-						}
-					}else{
-						dispatch(_obj.loginSuccess(res));
-						if(cb != null){
-							cb();
-						}	
-					}			
-        		});
-			});
+            // let _apiBody="grant_type=password&username="+data.Username+"&password="+data.Password;
+			// fetch(ApiPathConstants.getApiPath() + '/token', {
+			// 	method: 'POST',
+			// 	headers: {
+			// 		'Accept': 'application/json',
+			// 		'Content-Type': 'application/json'
+			// 	},
+			// 	body: _apiBody
+			// })
+			// .then(response => {
+			//
+			// 	response.json().then(function(res) {
+			// 		if(res.error !=null){
+			// 			dispatch(_obj.loginError(res));
+			// 			if(cb != null){
+			// 				cb();
+			// 			}
+			// 		}else{
+			// 			dispatch(_obj.loginSuccess(res));
+			// 			if(cb != null){
+			// 				cb();
+			// 			}
+			// 		}
+        		// });
+			// });
 
 		};
 	}

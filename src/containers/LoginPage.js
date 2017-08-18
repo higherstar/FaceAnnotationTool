@@ -32,19 +32,18 @@ class LoginPage extends Component {
 	                this.setState({
 	                	sendingRequest: false
 	                });
+	                console.log(this.props);
 	                if(this.props.error !== null) {
 	                	// Error
 	                	this.setState({
-	                		error: this.props.error.error_description
+	                		error: this.props.error
 	                	});
 	                }else {
 	                	// Set cookies
-	                	let access_token = this.props.userData.access_token;
-	                	let token_type= this.props.userData.token_type;
+	                	let access_token = this.props.token;
 	                	localStorage.setItem('username', data.Username);
 						localStorage.setItem('Token', access_token);
-                        localStorage.setItem('Token_Type', token_type);
-						_this.context.router.push('/search');
+						_this.context.router.push('/annotation');
 	                }
 	            }
 	        });
