@@ -1,0 +1,27 @@
+.layout{
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    margin-top: 50px;
+    background: #dcdcdc;
+    padding: 100px 50px;
+}
+.canvas_area{
+    width: 60%;
+    display: inline-block;
+    margin-right: 5%;
+}
+.instruction_area{
+    width: 35%;
+    display: inline-block;
+    height: 400px;
+    background: #9fd9e4;
+    vertical-align: top;
+    padding: 10px;
+}
+.instruction_area h3{
+    margin-top: 0px;
+}
+.text-center{
+    text-align: center;
+}
