@@ -1,7 +1,8 @@
 import React from 'react';
-import {Router, Route, browserHistory} from 'react-router';
+import { Router, Route, browserHistory } from 'react-router';
 import HomePage from './containers/HomePage';
 import LoginPage from './containers/LoginPage';
+
 let requireAuth = (nextState, replace) => {
   if(!localStorage.getItem('Token') || !localStorage.getItem('username')){
     replace({
@@ -12,7 +13,6 @@ let requireAuth = (nextState, replace) => {
     });
   }
 };
-
 
 export default (
 	<Router history={browserHistory}>
