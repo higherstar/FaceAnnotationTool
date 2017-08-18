@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
 import Canvas from '../../components/widgets/Canvas/index';
 import './index.css';
 
@@ -10,8 +9,40 @@ class HomePage extends Component {
 		this.state = {
             note: 'None',
             images: ['/img/1.jpeg', '/img/2.jpg', '/img/3.jpg'],
-			position: 0
+			position: 0,
+			button_type: 's'
         };
+		this.gotoSkip = this.gotoSkip.bind(this);
+
+	}
+
+    componentWillMount() {
+        document.addEventListener("keydown", this.handleEscKey, false);
+        if(this.state.button_type === 's'){
+            console.log('clicked s');
+        }
+    }
+
+﻿	componentWillUnmount() {
+        document.removeEventListener("keydown", this.handleEscKey, false);
+    }
+
+    handleEscKey(event){
+        switch (event.code){
+        	case 'KeyS':
+        		console.log('Clicked S key');
+        		break;
+           case 'Enter':
+               console.log('Clicked Enter key');
+               break;
+            case 'Backspace':
+                console.log('Clicked Backspace key');
+                break;
+        }
+    }
+
+    gotoSkip() {
+		console.log('clicked skip');
 	}
 
 	nextImage() {
