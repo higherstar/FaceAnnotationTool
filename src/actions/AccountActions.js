@@ -28,10 +28,11 @@ let AccountActions = {
 		return dispatch => {
 
             let res = null;
+            console.log(data);
 			if(data.Username === 'test' && data.Password === 'password'){
                 res = {
                     token: 'sdfsdfsdfsdfsdfsdfsdfsdfsdfsdf',
-                    message: 'successfuylly logged in.'
+                    message: 'successfully logged in.'
                 };
                 dispatch(_obj.loginSuccess(res));
                 if(cb != null){
@@ -39,7 +40,8 @@ let AccountActions = {
                 }
             }else{
                 res = {
-                    error: 'The credentials are incorrect.'
+                    error: "invalid_grant",
+                    error_description: "The credentials are incocrrect"
                 };
                 dispatch(_obj.loginError(res));
                 if(cb != null){
