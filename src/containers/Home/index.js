@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Canvas from '../../components/widgets/Canvas/index';
 import './index.css';
+
 class HomePage extends Component {
 	constructor(props) {
 		super(props);
@@ -13,15 +14,13 @@ class HomePage extends Component {
         };
 	}
 
-	nextImage(){
-		console.log('next image');
+	nextImage() {
 		this.setState({
 			position: this.state.position + 1
 		});
 	}
 
 	previousImage(){
-		console.log('previous image');
         this.setState({
             position: this.state.position - 1
         });
@@ -35,18 +34,22 @@ class HomePage extends Component {
 						<Canvas
 							images={this.state.images}
 							position={this.state.position}/>
+
 						<p className="note_area">
 							{this.state.note}
 						</p>
+
 						<div className="row">
 							<div className="col-md-6">
 								<button className="btn btn-previous btn-block" onClick={this.previousImage}>Previous</button>
 							</div>
+
 							<div className="col-md-6">
 								<button className="btn btn-green btn-block" onClick={this.nextImage}>Next</button>
 							</div>
 						</div>
 					</div>
+
 					<div className="instruction_area">
 						<h3 className="text-center">Instruction</h3>
 						<img src="/img/instruction.png" />
