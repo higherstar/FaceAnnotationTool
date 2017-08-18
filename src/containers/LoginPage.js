@@ -17,7 +17,7 @@ class LoginPage extends Component {
 
 	componentWillMount() {
 		if(localStorage.getItem('Token')){
-			this.context.router.push('/search');
+			this.context.router.push('/annotation');
 		}
 	}	
 
