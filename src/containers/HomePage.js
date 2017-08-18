@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 
 import Canvas from '../components/widgets/Canvas';
 
@@ -27,16 +26,4 @@ HomePage.contextTypes = {
 	router: PropTypes.object.isRequired
 };
 
-const mapStateToProps = (state) => {
-    return {
-        // propertiesData: state.ResultsReducer.propertiesData,
-        // error: state.ResultsReducer.error
-    };
-};
-
-const mapDispatchToProps = dispatch => {
-    return {
-    };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+export default HomePage;

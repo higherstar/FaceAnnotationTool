@@ -37,11 +37,11 @@ class LoginPage extends Component {
 	                if(this.props.error !== null) {
 	                	// Error
 	                	this.setState({
-	                		error: this.props.error
+	                		error: this.props.error.error_description
 	                	});
 	                }else {
 	                	// Set cookies
-	                	let access_token = this.props.token;
+	                	let access_token = this.props.userData.token;
 	                	localStorage.setItem('username', data.Username);
 						localStorage.setItem('Token', access_token);
 						_this.context.router.push('/annotation');
