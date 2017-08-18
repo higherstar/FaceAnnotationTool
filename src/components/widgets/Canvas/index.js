@@ -21,13 +21,21 @@ export default class Canvas extends Component {
 
     componentDidMount() {
         // create Pixi canvas and container
-        let app = new PIXI.Application(800, 450, {
+        let app = new PIXI.Application(225, 400, {
             backgroundColor: 0xffffff
         });
         this.refs.container.appendChild(app.view);
 
-        let container = new PIXI.container();
+        let container = new PIXI.Container();
         app.stage.addChild(container);
+
+        const sprite = PIXI.Sprite.fromImage(Img);
+        sprite.anchor.set(0.5);
+        sprite.x = app.renderer.width / 2;
+        sprite.y = app.renderer.height / 2;
+        sprite.width = app.renderer.width;
+        sprite.height = app.renderer.height;
+        container.addChild(sprite);
     }
 
     render() {
