@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import './_canvas.css';
-import Img from '../../../../public/img/download.jpeg';
 
 let PIXI = require('pixi.js');
 let cls;
@@ -19,7 +18,9 @@ export default class Canvas extends Component {
         this.state = {
             count: 0,
             container: null,
-            points: []
+            points: [],
+            width: 225,
+            height: 400
         }
     }
 
@@ -37,23 +38,62 @@ export default class Canvas extends Component {
         app.stage.addChild(container);
 
         // add default image to the canvas
-        const sprite = PIXI.Sprite.fromImage(Img);
-        sprite.anchor.set(0.5);
-        sprite.x = app.renderer.width / 2;
-        sprite.y = app.renderer.height / 2;
-        sprite.width = app.renderer.width;
-        sprite.height = app.renderer.height;
+        const Img = new Image();
+        Img.src = this.props.images[this.props.position];
+        Img.onload = () => {
+            const sprite = PIXI.Sprite.fromImage(Img.src);
+            sprite.anchor.set(0.5);
+            sprite.x = cls.state.width / 2;
+            sprite.y = cls.state.height / 2;
+            sprite.width = cls.state.width;
+            sprite.height = cls.state.height;
 
-        // add user interactive event
-        sprite.interactive = true;
-        sprite.on('pointerdown', this.onClick);
+            // add user interactive event
+            sprite.interactive = true;
+            sprite.on('pointerdown', cls.onClick);
 
-        // add image to the canvas
-        container.addChild(sprite);
+            // add image to the canvas
+            container.addChild(sprite);
 
-        this.setState({
-            container: container
-        });
+            this.setState({
+                container: container,
+                width: app.renderer.width,
+                height: app.renderer.height
+            });
+        };
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.position !== this.props.position) {
+            let container = cls.state.container;
+            while (container.children[0]) {
+                container.removeChild(container.children[0]);
+            }
+
+            // add default image to the canvas
+            const Img = new Image();
+            Img.src = nextProps.images[nextProps.position];
+            Img.onload = () => {
+                const sprite = PIXI.Sprite.fromImage(Img.src);
+                sprite.anchor.set(0.5);
+                sprite.x = cls.state.width / 2;
+                sprite.y = cls.state.height / 2;
+                sprite.width = cls.state.width;
+                sprite.height = cls.state.height;
+
+                // add user interactive event
+                sprite.interactive = true;
+                sprite.on('pointerdown', cls.onClick);
+
+                // add image to the canvas
+                container.addChild(sprite);
+                this.setState({
+                    container: container,
+                    count: 0,
+                    points: []
+                });
+            };
+        }
     }
 
     // mouse click event on canvas
@@ -67,8 +107,8 @@ export default class Canvas extends Component {
         const curPos = this.data.getLocalPosition(this.parent);
 
         // add pointers to image
-        if (curPos.x > 10 && curPos.x < cls.state.container.width - 10
-            && curPos.y > 10 && curPos.y < cls.state.container.height - 10) {
+        if (curPos.x > 10 && curPos.x < cls.state.width - 10
+            && curPos.y > 10 && curPos.y < cls.state.height - 10) {
             cls.addPointer(curPos);
         }
     };
