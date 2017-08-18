@@ -17,6 +17,6 @@ let requireAuth = (nextState, replace) => {
 export default (
 	<Router history={browserHistory}>
 		<Route path="/" component={LoginPage} />
-		<Route path="/annotation" component={HomePage} onEnter={requireAuth} />
+		<Route path="/annotation" component={HomePage} />
 	</Router>
 );
