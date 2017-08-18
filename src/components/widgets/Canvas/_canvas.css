@@ -1,7 +1,6 @@
 .canvas-container {
+    width: 227px;
+    height: 402px;
     display: inline-block;
     border: 1px solid black;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
 }
