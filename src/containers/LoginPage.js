@@ -1,7 +1,5 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
-import Header from './Common/Header';
-import Footer from './Common/Footer';
 import LoginForm from '../components/widgets/Form/LoginForm';
 import LoadingOverlay from '../components/widgets/LoadingOverlay';
 import {AccountActions} from '../actions';
@@ -62,7 +60,6 @@ class LoginPage extends Component {
                     message="Please wait..."
                 />	
 				<div className="wrapper no-sidebar">
-					<Header hideRegister={true}/>
 					<section>
 						<div className="content-wrapper">                            
 							<div className="block-center mt-xl wd-xl">
@@ -80,7 +77,6 @@ class LoginPage extends Component {
 							</div>
 						</div>
 					</section>
-					<Footer/>
 				</div>
 			</div>
 		);

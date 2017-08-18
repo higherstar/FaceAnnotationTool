@@ -2,9 +2,6 @@ import React from 'react';
 import {Router, Route, browserHistory} from 'react-router';
 import HomePage from './containers/HomePage';
 import LoginPage from './containers/LoginPage';
-import createHistory from 'history/createBrowserHistory';
-const history = createHistory();
-
 let requireAuth = (nextState, replace) => {
   if(!localStorage.getItem('Token') || !localStorage.getItem('username')){
     replace({
