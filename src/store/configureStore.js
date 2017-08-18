@@ -1,9 +1,9 @@
-import {createStore, applyMiddleware, compose} from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import createLogger from 'redux-logger';
-import {browserHistory} from 'react-router';
-import {routerMiddleware} from 'react-router-redux';
-import {persistState} from 'redux-devtools';
+import { browserHistory } from 'react-router';
+import { routerMiddleware } from 'react-router-redux';
+import { persistState } from 'redux-devtools';
 import rootReducer from '../reducers';
 
 const logger = createLogger({

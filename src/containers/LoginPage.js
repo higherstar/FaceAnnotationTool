@@ -1,8 +1,9 @@
-import React, {Component, PropTypes} from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import LoginForm from '../components/widgets/Form/LoginForm';
 import LoadingOverlay from '../components/widgets/LoadingOverlay';
-import {AccountActions} from '../actions';
+import { AccountActions } from '../actions';
 
 class LoginPage extends Component {
 	constructor(props, context) {
